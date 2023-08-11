@@ -27,6 +27,28 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+
+
+INSERT INTO `megamaxi_bdd`.`categoria`
+(`nombre`,
+`descripcion`)
+VALUES
+("Utensilio",
+"Producto para determinar si de material de metal o plastico y si es importado o no");
+
+INSERT INTO `megamaxi_bdd`.`categoria`
+(`nombre`,
+`descripcion`)
+VALUES
+("Cárnico",
+"Producto tipo de carne (cerdo, pollo, res) y el peso de estos");
+
+INSERT INTO `megamaxi_bdd`.`categoria`
+(`nombre`,
+`descripcion`)
+VALUES
+("Líquido",
+"Capacidad de envase y si es lácteo o no");
 -- Table `mydb`.`Producto`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `megamaxi_bdd`.`Producto` (
