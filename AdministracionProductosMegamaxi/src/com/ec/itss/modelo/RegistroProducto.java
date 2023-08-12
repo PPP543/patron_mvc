@@ -19,22 +19,44 @@ public class RegistroProducto {
     ConexionMySql connectionMySql = new ConexionMySql();
     Connection con = connectionMySql.conectar();
     
-    public void registrar(Utensilio p){
+    public void registrarUtensilio(Utensilio utensilio){
         try {
             PreparedStatement ps = con.prepareStatement("INSERT INTO Producto(nombre, identificador, cantidad, precio, precioComercializacion, total, fechaCaducidad, "
                     + "fechaRegistro, idCategoria, esPlastico, esMetal, esImportado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-            ps.setString(1,p.getNombre());
-            ps.setString(2,p.getIdentificador());
-            ps.setInt(3,p.getCantidad());
-            ps.setDouble(4,p.getPrecio());
-            ps.setDouble(5,p.getPrecioComercializacion());
-            ps.setDouble(6,p.calcularTotal());
-            ps.setDouble(7,p.getFechaCaducidad());
-            ps.setDate(8,p.getFechaRegistro());
-            ps.setDouble(9,p.getIdCategoria());
-            ps.setBoolean(10, p.getEsPlastico());
-            ps.setBoolean(11, p.getEsMetal());
-            ps.setBoolean(12, p.getEsImportado());
+            ps.setString(1,utensilio.getNombre());
+            ps.setString(2,utensilio.getIdentificador());
+            ps.setInt(3,utensilio.getCantidad());
+            ps.setDouble(4,utensilio.getPrecio());
+            ps.setDouble(5,utensilio.getPrecioComercializacion());
+            ps.setDouble(6,utensilio.calcularTotal());
+            ps.setDouble(7,utensilio.getFechaCaducidad());
+            ps.setDate(8,utensilio.getFechaRegistro());
+            ps.setDouble(9,utensilio.getIdCategoria());
+            ps.setBoolean(10, utensilio.getEsPlastico());
+            ps.setBoolean(11, utensilio.getEsMetal());
+            ps.setBoolean(12, utensilio.getEsImportado());
+            
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR AL REGISTAR EL PRODUCTO\n"+ ex);
+        }
+    }
+    
+    public void registrarCarnico(Carnico carnico){
+        try {
+            PreparedStatement ps = con.prepareStatement("INSERT INTO Producto(nombre, identificador, cantidad, precio, precioComercializacion, total, fechaCaducidad, "
+                    + "fechaRegistro, idCategoria, tipoCarnico, peso) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+            ps.setString(1,carnico.getNombre());
+            ps.setString(2,carnico.getIdentificador());
+            ps.setInt(3,carnico.getCantidad());
+            ps.setDouble(4,carnico.getPrecio());
+            ps.setDouble(5,carnico.getPrecioComercializacion());
+            ps.setDouble(6,carnico.calcularTotal());
+            ps.setDouble(7,carnico.getFechaCaducidad());
+            ps.setDate(8,carnico.getFechaRegistro());
+            ps.setDouble(9,carnico.getIdCategoria());
+            ps.setString(10, carnico.getTipoCarnico());
+            ps.setDouble(11, carnico.getPeso());
             
             ps.executeUpdate();
         } catch (SQLException ex) {
