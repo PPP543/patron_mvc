@@ -5,6 +5,10 @@
  */
 package com.ec.itss.modelo;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
+
 /**
  *
  * @author ppucha
@@ -13,18 +17,30 @@ public class Producto {
     
     private String nombre;
     
+    private String identificador;
+    
     private Integer cantidad;
     
     private Double precio;
     
+    private Double precioComercializacion;
+    
     private Double total;
     
+    private Integer fechaCaducidad;
+    
+    private Date fechaRegistro;
+    
     private Integer idCategoria;
+ 
+    private Integer idProveedor;
 
-    public Producto(String nombre, Integer cantidad, Double precio, Integer idCategoria) {
+    public Producto(String nombre, String identificador, Integer cantidad, Double precio, Integer fechaCaducidad, Integer idCategoria) {
         this.nombre = nombre;
+        this.identificador = identificador;
         this.cantidad = cantidad;
         this.precio = precio;
+        this.fechaCaducidad = fechaCaducidad;
         this.idCategoria = idCategoria;
     }
 
@@ -71,5 +87,46 @@ public class Producto {
     public void setIdCategoria(Integer idCategoria) {
         this.idCategoria = idCategoria;
     }
+
+    public String getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
+    }
+
+    public Integer getFechaCaducidad() {
+        return fechaCaducidad;
+    }
+
+    public void setFechaCaducidad(Integer fechaCaducidad) {
+        this.fechaCaducidad = fechaCaducidad;
+    }
+
+    public Integer getIdProveedor() {
+        return idProveedor;
+    }
+
+    public void setIdProveedor(Integer idProveedor) {
+        this.idProveedor = idProveedor;
+    }
+
+    public Double getPrecioComercializacion() {
+        return this.precio + 0.12;
+    }
+
+    public void setPrecioComercializacion(Double precioComercializacion) {
+        this.precioComercializacion = precioComercializacion;
+    }
+
+    public Date getFechaRegistro() {
+        return Date.valueOf(LocalDate.now());
+    }
+
+    public void setFechaRegistro(Date fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+    
     
 }

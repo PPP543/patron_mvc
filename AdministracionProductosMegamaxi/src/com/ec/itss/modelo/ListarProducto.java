@@ -22,19 +22,20 @@ public class ListarProducto {
     
     public void mostrarTabla(JTable tabla){
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Identificador");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Cantidad existencia");
+        modelo.addColumn("TipoProducto");
         modelo.addColumn("Precio");
-        modelo.addColumn("Total");
+        modelo.addColumn("Cantidad existencia");
+        modelo.addColumn("Precio comercialización");
         
-        String query = "SELECT * FROM Producto";
+        String query = "SELECT c.nombre, p.precio, p.cantidad, p.precioComercializacion "
+                + "FROM producto p, categoria c "
+                + "WHERE p.idCategoria = c.idCategoria";
         Statement st;
          try {
             st = connection.createStatement();
             ResultSet rs = st.executeQuery(query);
             while (rs.next()){
-                Object [] lista = {rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4), rs.getDouble(5)};
+                Object [] lista = {rs.getString(1), rs.getDouble(2), rs.getInt(3), rs.getDouble(4)};
                 modelo.addRow(lista);
             }
             tabla.setModel(modelo);
