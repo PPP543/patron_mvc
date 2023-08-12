@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author ppucha
  */
-public class Frm_RegistrarProducto extends javax.swing.JDialog {
+public final class Frm_RegistrarProducto extends javax.swing.JDialog {
 
     /**
      * Creates new form frm_registrarProducto
@@ -165,6 +165,9 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
                 .addGap(20, 20, 20))
         );
 
+        tableProductos.setAutoCreateRowSorter(true);
+        tableProductos.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        tableProductos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         tableProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -173,7 +176,7 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre Producto", "Tipo Producto", "Cantidad en Existencia", "Precio"
             }
         ));
         jScrollPane1.setViewportView(tableProductos);
@@ -183,10 +186,10 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,8 +197,8 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 16, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                        .addGap(16, 16, 16))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );

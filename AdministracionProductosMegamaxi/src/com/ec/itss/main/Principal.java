@@ -5,9 +5,10 @@
  */
 package com.ec.itss.main;
 
-import com.ec.itss.controlador.Frm_RegistrarProducto_Controlador;
-import com.ec.itss.modelo.ListarProducto;
-import com.ec.itss.vista.Frm_RegistrarProducto;
+import com.ec.itss.controlador.Frm_RegistrarProveedor_Controlador;
+import com.ec.itss.modelo.ListarProveedor;
+//import com.ec.itss.vista.Frm_RegistrarProducto;
+import com.ec.itss.vista.Frm_RegistrarProveedor;
 
 /**
  *
@@ -15,24 +16,24 @@ import com.ec.itss.vista.Frm_RegistrarProducto;
  */
 public class Principal {
     
-    public static Frm_RegistrarProducto frm_rp;
+    public static Frm_RegistrarProveedor frm_prov;
     
-    public static Frm_RegistrarProducto_Controlador c_frm_rp;
+    public static Frm_RegistrarProveedor_Controlador c_frm_prov;
     
-    public static ListarProducto listar_producto;
+    public static ListarProveedor listar_proveedor;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        frm_rp = new Frm_RegistrarProducto();
-        frm_rp.setVisible(true);
-        frm_rp.setLocationRelativeTo(null);
+        frm_prov = new Frm_RegistrarProveedor();
+        frm_prov.setVisible(true);
+        frm_prov.setLocationRelativeTo(null);
         
-        c_frm_rp = new Frm_RegistrarProducto_Controlador(frm_rp);
+        //c_frm_prov = new Frm_RegistrarProveedor_Controlador(frm_prov);
         
-        listar_producto = new ListarProducto();
-        listar_producto.mostrarTabla(frm_rp.tableProductos);
+        ListarProveedor ListarProveedores = new ListarProveedor();
+        ListarProveedores.mostrarTabla(frm_prov.tableProveedor);
     }
     
 }

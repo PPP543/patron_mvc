@@ -7,7 +7,7 @@ package com.ec.itss.controlador;
 
 import com.ec.itss.modelo.ListarProducto;
 import com.ec.itss.modelo.Producto;
-import com.ec.itss.modelo.RegistroProducto;
+import com.ec.itss.modelo.RegistrarProducto;
 import com.ec.itss.vista.Frm_RegistrarProducto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,7 +36,7 @@ public class Frm_RegistrarProducto_Controlador implements ActionListener{
             Integer idCategoria = frm_rp.jComboBoxCategoria.getItemAt(frm_rp.jComboBoxCategoria.getSelectedIndex()).getIdCategoria();
             
             Producto producto = new Producto(nombre, cantidad, precio, idCategoria);
-            RegistroProducto registro = new RegistroProducto();
+            RegistrarProducto registro = new RegistrarProducto();
             registro.registrar(producto);
             
             

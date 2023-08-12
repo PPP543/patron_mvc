@@ -20,7 +20,7 @@ public class ConexionMySql {
         try {
             String jdbcUrl = "jdbc:mysql://localhost:3306/megamaxi_bdd";
             String username = "root";
-            String password = "admin@";
+            String password = "";
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(jdbcUrl, username, password);
             System.out.println("Conexion exitosa");

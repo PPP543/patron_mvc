@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author ppucha
  */
-public class RegistroProducto {
+public class RegistrarProducto {
     
     ConexionMySql connectionMySql = new ConexionMySql();
     Connection con = connectionMySql.conectar();
