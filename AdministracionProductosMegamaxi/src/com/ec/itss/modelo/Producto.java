@@ -34,6 +34,10 @@ public class Producto {
     private Integer idCategoria;
  
     private Integer idProveedor;
+    
+    public Producto(){
+    
+    }
 
     public Producto(String nombre, String identificador, Integer cantidad, Double precio, Integer fechaCaducidad, Integer idCategoria) {
         this.nombre = nombre;

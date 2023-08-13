@@ -6,37 +6,37 @@
 package com.ec.itss.modelo;
 
 import com.ec.itss.conexion.ConexionMySql;
+import com.sun.java.accessibility.util.SwingEventMonitor;
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author ppucha
+ * @author PAUL CROSSOVER
  */
-public class ListarProducto {
+public class ListarProveedores {
     ConexionMySql conMySql = new ConexionMySql();
     Connection connection = conMySql.conectar();
     
     public void mostrarTabla(JTable tabla){
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("TipoProducto");
-        modelo.addColumn("Precio");
-        modelo.addColumn("Cantidad existencia");
-        modelo.addColumn("Precio comercialización");
-        
-        String query = "SELECT c.nombre, p.precio, p.cantidad, p.precioComercializacion "
-                + "FROM producto p, categoria c "
-                + "WHERE p.idCategoria = c.idCategoria";
+        modelo.addColumn("idProveedor");
+        modelo.addColumn("Ruc Proveedor");
+        modelo.addColumn("Nombre Proveedor");
+        modelo.addColumn("Cantidad Entregas Mes");
+        modelo.addColumn("Tipo Proveedor");
+
+        String query = "SELECT * FROM Proveedor";
         Statement st;
          try {
             st = connection.createStatement();
             ResultSet rs = st.executeQuery(query);
             while (rs.next()){
-                Object [] lista = {rs.getString(1), rs.getDouble(2), rs.getInt(3), rs.getDouble(4)};
+                Object [] lista = {rs.getInt(1), rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5)};
                 modelo.addRow(lista);
             }
             tabla.setModel(modelo);

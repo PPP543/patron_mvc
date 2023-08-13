@@ -7,6 +7,9 @@ package com.ec.itss.vista;
 
 import com.ec.itss.modelo.Categoria;
 import com.ec.itss.modelo.ListarCategoria;
+import com.ec.itss.modelo.ListarProducto;
+import com.ec.itss.modelo.Producto;
+import com.ec.itss.modelo.RegistroProducto;
 import java.util.ArrayList;
 
 /**
@@ -20,6 +23,7 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
      */
     public Frm_RegistrarProducto() {
         initComponents();
+        this.setLocationRelativeTo(null);
         mostrarCategorias();
     }
 
@@ -265,6 +269,20 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+        ListarProducto lpro = new ListarProducto();
+        RegistroProducto  rpro= new RegistroProducto();
+        Producto prodt = new Producto();
+        prodt.setNombre(txtNombre.getText());
+        prodt.setIdentificador(txtIdentificador.getText());
+        prodt.setPrecio(Double.valueOf(txtPrecio.getText()));
+        prodt.setCantidad(Integer.parseInt(txtCantidad.getText()));
+        prodt.setFechaCaducidad(Integer.parseInt(txtFechaCaducidad.getText()));
+        //prodt.addElemnt();
+        //rpro.registrar();
+        lpro.mostrarTabla(tableProductos);
+        
+        
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void jComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaActionPerformed
@@ -380,3 +398,4 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
     public javax.swing.JTextField txtProveedor;
     // End of variables declaration//GEN-END:variables
 }
+
