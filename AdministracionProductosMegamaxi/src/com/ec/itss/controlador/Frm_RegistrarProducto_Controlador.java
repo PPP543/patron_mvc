@@ -6,6 +6,7 @@
 package com.ec.itss.controlador;
 
 import com.ec.itss.modelo.Carnico;
+import com.ec.itss.modelo.Liquido;
 import com.ec.itss.modelo.ListarProducto;
 import com.ec.itss.modelo.Producto;
 import com.ec.itss.modelo.RegistroProducto;
@@ -36,7 +37,7 @@ public class Frm_RegistrarProducto_Controlador implements ActionListener{
             String identificador = frm_rp.txtIdentificador.getText();
             Integer cantidad = Integer.parseInt(frm_rp.txtCantidad.getText());
             Double precio = Double.parseDouble(frm_rp.txtPrecio.getText());
-            Integer fechaCaducidad = frm_rp.txtFechaCaducidad.getText() == null ? Integer.parseInt(frm_rp.txtFechaCaducidad.getText()) : 0;
+            Integer fechaCaducidad = frm_rp.txtFechaCaducidad.getText().equals("") ? 0 : Integer.parseInt(frm_rp.txtFechaCaducidad.getText());
             Integer idCategoria = frm_rp.jComboBoxCategoria.getItemAt(frm_rp.jComboBoxCategoria.getSelectedIndex()).getIdCategoria();
             RegistroProducto registro = new RegistroProducto();
             // Si selecciono Utensilio en el combo se me va a guardar un producto Utensilio
@@ -56,6 +57,14 @@ public class Frm_RegistrarProducto_Controlador implements ActionListener{
                 Carnico carnico = new Carnico(tipoCarnico, pesoKg, nombre, identificador, cantidad, precio, fechaCaducidad, idCategoria);
                 registro.registrarCarnico(carnico);
             }
+            
+            if(idCategoria == 3){
+                Boolean esLacteo = frm_rp.jRadioButtonEsLacteo.isSelected() ? Boolean.TRUE : Boolean.FALSE;
+                Double capacidadEnvase = Double.valueOf(frm_rp.textCapacidadEnvase.getText());
+                Liquido liquido = new Liquido(capacidadEnvase,esLacteo,nombre,identificador,cantidad,precio,fechaCaducidad,idCategoria);
+                registro.registrarLiquido(liquido);
+            }
+            
             ListarProducto lp = new ListarProducto();
             lp.mostrarTabla(frm_rp.tableProductos);
             limpiarEntradas();
@@ -69,6 +78,8 @@ public class Frm_RegistrarProducto_Controlador implements ActionListener{
         frm_rp.txtPrecio.setText("");
         frm_rp.txtFechaCaducidad.setText("");  
         frm_rp.txtPesoKg.setText("");
+        frm_rp.textCapacidadEnvase.setText("");
+        frm_rp.jRadioButtonEsLacteo.isSelected();
         frm_rp.jRadioButtonEsPlastico.isSelected();
         frm_rp.jRadioButtonCarnicoPollo.isSelected();
     }

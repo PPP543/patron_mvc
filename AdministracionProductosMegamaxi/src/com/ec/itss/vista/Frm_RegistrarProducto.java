@@ -21,6 +21,7 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
     public Frm_RegistrarProducto() {
         initComponents();
         mostrarCategorias();
+        
     }
 
     /**
@@ -39,20 +40,24 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
         txtFechaCaducidad = new javax.swing.JTextField();
         txtCantidad = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        btnGuardar = new javax.swing.JButton();
         jComboBoxCategoria = new javax.swing.JComboBox<>();
         txtIdentificador = new javax.swing.JTextField();
         txtProveedor = new javax.swing.JTextField();
-        jPanelMaterialUtensilio = new javax.swing.JPanel();
+        jPanelPropiedadesUtensilio = new javax.swing.JPanel();
         jRadioButtonEsPlastico = new javax.swing.JRadioButton();
         jRadioButtonEsMetal = new javax.swing.JRadioButton();
         jRadioButtonEsImportado = new javax.swing.JRadioButton();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelPropiedadesCarnico = new javax.swing.JPanel();
         jRadioButtonCarnicoPollo = new javax.swing.JRadioButton();
         jRadioButtonCarnicoCerdo = new javax.swing.JRadioButton();
         jRadioButtonCarnicoCarne = new javax.swing.JRadioButton();
         txtPesoKg = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jPanelPropiedadesLiquido = new javax.swing.JPanel();
+        jRadioButtonEsLacteo = new javax.swing.JRadioButton();
+        textCapacidadEnvase = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        btnGuardar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableProductos = new javax.swing.JTable();
 
@@ -88,18 +93,12 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
             }
         });
 
-        btnGuardar.setBackground(new java.awt.Color(255, 0, 0));
-        btnGuardar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
-        btnGuardar.setBorderPainted(false);
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+        jComboBoxCategoria.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
+        jComboBoxCategoria.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxCategoriaItemStateChanged(evt);
             }
         });
-
-        jComboBoxCategoria.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
 
         txtIdentificador.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Identificador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
         txtIdentificador.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +114,7 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
             }
         });
 
-        jPanelMaterialUtensilio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Propiedades utensilio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
+        jPanelPropiedadesUtensilio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Propiedades utensilio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
 
         jRadioButtonEsPlastico.setText("Plástico");
 
@@ -123,26 +122,26 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
 
         jRadioButtonEsImportado.setText("Importado");
 
-        javax.swing.GroupLayout jPanelMaterialUtensilioLayout = new javax.swing.GroupLayout(jPanelMaterialUtensilio);
-        jPanelMaterialUtensilio.setLayout(jPanelMaterialUtensilioLayout);
-        jPanelMaterialUtensilioLayout.setHorizontalGroup(
-            jPanelMaterialUtensilioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMaterialUtensilioLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelPropiedadesUtensilioLayout = new javax.swing.GroupLayout(jPanelPropiedadesUtensilio);
+        jPanelPropiedadesUtensilio.setLayout(jPanelPropiedadesUtensilioLayout);
+        jPanelPropiedadesUtensilioLayout.setHorizontalGroup(
+            jPanelPropiedadesUtensilioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPropiedadesUtensilioLayout.createSequentialGroup()
                 .addComponent(jRadioButtonEsPlastico)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jRadioButtonEsMetal, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButtonEsImportado))
         );
-        jPanelMaterialUtensilioLayout.setVerticalGroup(
-            jPanelMaterialUtensilioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMaterialUtensilioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanelPropiedadesUtensilioLayout.setVerticalGroup(
+            jPanelPropiedadesUtensilioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPropiedadesUtensilioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jRadioButtonEsMetal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jRadioButtonEsPlastico, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jRadioButtonEsImportado))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Propiedades cárnico", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
+        jPanelPropiedadesCarnico.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Propiedades cárnico", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
 
         buttonGroup1.add(jRadioButtonCarnicoPollo);
         jRadioButtonCarnicoPollo.setText("Pollo");
@@ -156,19 +155,19 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
         txtPesoKg.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Peso", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
-        jLabel1.setText("Kg");
+        jLabel1.setText("kg");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelPropiedadesCarnicoLayout = new javax.swing.GroupLayout(jPanelPropiedadesCarnico);
+        jPanelPropiedadesCarnico.setLayout(jPanelPropiedadesCarnicoLayout);
+        jPanelPropiedadesCarnicoLayout.setHorizontalGroup(
+            jPanelPropiedadesCarnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPropiedadesCarnicoLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(txtPesoKg, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanelPropiedadesCarnicoLayout.createSequentialGroup()
                 .addComponent(jRadioButtonCarnicoPollo)
                 .addGap(18, 18, 18)
                 .addComponent(jRadioButtonCarnicoCarne)
@@ -176,46 +175,89 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
                 .addComponent(jRadioButtonCarnicoCerdo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanelPropiedadesCarnicoLayout.setVerticalGroup(
+            jPanelPropiedadesCarnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPropiedadesCarnicoLayout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addGroup(jPanelPropiedadesCarnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonCarnicoPollo)
                     .addComponent(jRadioButtonCarnicoCerdo)
                     .addComponent(jRadioButtonCarnicoCarne))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelPropiedadesCarnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPesoKg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
+
+        jPanelPropiedadesLiquido.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Propiedades líquido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
+
+        jRadioButtonEsLacteo.setText("Es lácteo");
+
+        textCapacidadEnvase.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Capacidad envase", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jLabel2.setText("ml");
+
+        javax.swing.GroupLayout jPanelPropiedadesLiquidoLayout = new javax.swing.GroupLayout(jPanelPropiedadesLiquido);
+        jPanelPropiedadesLiquido.setLayout(jPanelPropiedadesLiquidoLayout);
+        jPanelPropiedadesLiquidoLayout.setHorizontalGroup(
+            jPanelPropiedadesLiquidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPropiedadesLiquidoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jRadioButtonEsLacteo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelPropiedadesLiquidoLayout.createSequentialGroup()
+                .addComponent(textCapacidadEnvase, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanelPropiedadesLiquidoLayout.setVerticalGroup(
+            jPanelPropiedadesLiquidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPropiedadesLiquidoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jRadioButtonEsLacteo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelPropiedadesLiquidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textCapacidadEnvase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        btnGuardar.setBackground(new java.awt.Color(255, 0, 0));
+        btnGuardar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        btnGuardar.setText("Guardar");
+        btnGuardar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+        btnGuardar.setBorderPainted(false);
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanelMaterialUtensilio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtIdentificador, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxCategoria, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtFechaCaducidad, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtProveedor, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCantidad, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanelPropiedadesCarnico, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanelPropiedadesUtensilio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtIdentificador)
+                    .addComponent(jComboBoxCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtPrecio)
+                    .addComponent(txtFechaCaducidad)
+                    .addComponent(txtProveedor)
+                    .addComponent(txtCantidad)
+                    .addComponent(txtNombre)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelPropiedadesLiquido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,11 +272,14 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanelMaterialUtensilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanelPropiedadesUtensilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelPropiedadesCarnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelPropiedadesLiquido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
         );
 
         tableProductos.setModel(new javax.swing.table.DefaultTableModel(
@@ -255,9 +300,9 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(107, Short.MAX_VALUE)
+                .addContainerGap(103, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 952, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -265,11 +310,9 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 143, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -302,6 +345,22 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
     private void txtProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProveedorActionPerformed
+
+    private void jComboBoxCategoriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaItemStateChanged
+        /**if(jComboBoxCategoria.getItemAt(jComboBoxCategoria.getSelectedIndex()).getIdCategoria() == 1){
+            jPanelPropiedadesUtensilio.setVisible(true);
+            jPanelPropiedadesCarnico.setVisible(false);
+            jPanelPropiedadesLiquido.setVisible(false);
+        }else if(jComboBoxCategoria.getItemAt(jComboBoxCategoria.getSelectedIndex()).getIdCategoria() == 2){
+            jPanelPropiedadesUtensilio.setVisible(false);
+            jPanelPropiedadesCarnico.setVisible(true);
+            jPanelPropiedadesLiquido.setVisible(false);
+        } else if(jComboBoxCategoria.getItemAt(jComboBoxCategoria.getSelectedIndex()).getIdCategoria() == 3){
+            jPanelPropiedadesUtensilio.setVisible(false);
+            jPanelPropiedadesCarnico.setVisible(false);
+            jPanelPropiedadesLiquido.setVisible(true);
+        }    */       
+    }//GEN-LAST:event_jComboBoxCategoriaItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -350,17 +409,21 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
     private javax.swing.ButtonGroup buttonGroup2;
     public javax.swing.JComboBox<Categoria> jComboBoxCategoria;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     public javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    public javax.swing.JPanel jPanelMaterialUtensilio;
+    public javax.swing.JPanel jPanelPropiedadesCarnico;
+    public javax.swing.JPanel jPanelPropiedadesLiquido;
+    public javax.swing.JPanel jPanelPropiedadesUtensilio;
     public javax.swing.JRadioButton jRadioButtonCarnicoCarne;
     public javax.swing.JRadioButton jRadioButtonCarnicoCerdo;
     public javax.swing.JRadioButton jRadioButtonCarnicoPollo;
     public javax.swing.JRadioButton jRadioButtonEsImportado;
+    public javax.swing.JRadioButton jRadioButtonEsLacteo;
     public javax.swing.JRadioButton jRadioButtonEsMetal;
     public javax.swing.JRadioButton jRadioButtonEsPlastico;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tableProductos;
+    public javax.swing.JTextField textCapacidadEnvase;
     public javax.swing.JTextField txtCantidad;
     public javax.swing.JTextField txtFechaCaducidad;
     public javax.swing.JTextField txtIdentificador;
