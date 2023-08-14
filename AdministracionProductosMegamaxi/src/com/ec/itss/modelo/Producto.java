@@ -39,13 +39,14 @@ public class Producto {
     
     }
 
-    public Producto(String nombre, String identificador, Integer cantidad, Double precio, Integer fechaCaducidad, Integer idCategoria) {
+    public Producto(String nombre, String identificador, Integer cantidad, Double precio, Integer fechaCaducidad, Integer idCategoria, Integer idProveedor) {
         this.nombre = nombre;
         this.identificador = identificador;
         this.cantidad = cantidad;
         this.precio = precio;
         this.fechaCaducidad = fechaCaducidad;
         this.idCategoria = idCategoria;
+        this.idProveedor = idProveedor;
     }
 
     public String getNombre() {

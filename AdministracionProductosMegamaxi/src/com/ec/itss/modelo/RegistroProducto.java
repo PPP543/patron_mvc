@@ -20,11 +20,11 @@ public class RegistroProducto {
     Connection con = connectionMySql.conectar();
     PreparedStatement ps;
     public static final String QUERY = "INSERT INTO Producto(nombre, identificador, cantidad, precio, "
-            + "precioComercializacion, total, fechaCaducidad, fechaRegistro, idCategoria,";
+            + "precioComercializacion, total, fechaCaducidad, fechaRegistro, idCategoria, idProveedor,";
     
     public void registrarUtensilio(Utensilio utensilio){
         try {
-            ps = con.prepareStatement(QUERY + "esPlastico, esMetal, esImportado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+            ps = con.prepareStatement(QUERY + "esPlastico, esMetal, esImportado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1,utensilio.getNombre());
             ps.setString(2,utensilio.getIdentificador());
             ps.setInt(3,utensilio.getCantidad());
@@ -34,9 +34,10 @@ public class RegistroProducto {
             ps.setDouble(7,utensilio.getFechaCaducidad());
             ps.setDate(8,utensilio.getFechaRegistro());
             ps.setInt(9,utensilio.getIdCategoria());
-            ps.setBoolean(10, utensilio.getEsPlastico());
-            ps.setBoolean(11, utensilio.getEsMetal());
-            ps.setBoolean(12, utensilio.getEsImportado());
+            ps.setInt(10,utensilio.getIdProveedor());
+            ps.setBoolean(11, utensilio.getEsPlastico());
+            ps.setBoolean(12, utensilio.getEsMetal());
+            ps.setBoolean(13, utensilio.getEsImportado());
             
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -46,7 +47,7 @@ public class RegistroProducto {
     
     public void registrarCarnico(Carnico carnico){
         try {
-            ps = con.prepareStatement(QUERY + "tipoCarnico, peso) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+            ps = con.prepareStatement(QUERY + "tipoCarnico, peso) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1,carnico.getNombre());
             ps.setString(2,carnico.getIdentificador());
             ps.setInt(3,carnico.getCantidad());
@@ -56,8 +57,9 @@ public class RegistroProducto {
             ps.setDouble(7,carnico.getFechaCaducidad());
             ps.setDate(8,carnico.getFechaRegistro());
             ps.setInt(9,carnico.getIdCategoria());
-            ps.setString(10, carnico.getTipoCarnico());
-            ps.setDouble(11, carnico.getPeso());
+            ps.setInt(10,carnico.getIdProveedor());
+            ps.setString(11, carnico.getTipoCarnico());
+            ps.setDouble(12, carnico.getPeso());
             
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -67,7 +69,7 @@ public class RegistroProducto {
     
     public void registrarLiquido(Liquido liquido){
         try {
-            ps = con.prepareStatement(QUERY + "capacidadEnvase, esLacteo) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+            ps = con.prepareStatement(QUERY + "capacidadEnvase, esLacteo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1,liquido.getNombre());
             ps.setString(2,liquido.getIdentificador());
             ps.setInt(3,liquido.getCantidad());
@@ -77,8 +79,9 @@ public class RegistroProducto {
             ps.setDouble(7,liquido.getFechaCaducidad());
             ps.setDate(8,liquido.getFechaRegistro());
             ps.setInt(9,liquido.getIdCategoria());
-            ps.setDouble(10, liquido.getCapacidadEnvase());
-            ps.setBoolean(11, liquido.getEsLacteo());
+            ps.setInt(10,liquido.getIdProveedor());
+            ps.setDouble(11, liquido.getCapacidadEnvase());
+            ps.setBoolean(12, liquido.getEsLacteo());
             
             ps.executeUpdate();
         } catch (SQLException ex) {

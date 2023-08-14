@@ -11,6 +11,8 @@ package com.ec.itss.modelo;
  */
 public class Proveedor {
     
+    private Integer idProveedor;
+    
     private String nombre;
     
     private String ruc;
@@ -30,6 +32,10 @@ public class Proveedor {
         
     }
 
+    public Proveedor(Integer idProveedor, String nombre) {
+        this.idProveedor = idProveedor;
+        this.nombre = nombre;
+    }
 
     public String getNombre() {
         return nombre;
@@ -64,8 +70,20 @@ public class Proveedor {
     public void setTipo_proveedor(String tipo_proveedor) {
         this.tipo_proveedor = tipo_proveedor;
     }
+
+    public Integer getIdProveedor() {
+        return idProveedor;
+    }
+
+    public void setIdProveedor(Integer idProveedor) {
+        this.idProveedor = idProveedor;
+    }
     
-    //to String
+    @Override
+    public String toString() {
+        return nombre;
+    }
+    
 }
     
 

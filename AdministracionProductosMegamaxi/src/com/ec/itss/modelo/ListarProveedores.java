@@ -6,17 +6,17 @@
 package com.ec.itss.modelo;
 
 import com.ec.itss.conexion.ConexionMySql;
-import com.sun.java.accessibility.util.SwingEventMonitor;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author PAUL CROSSOVER
+ * @author ppucha
  */
 public class ListarProveedores {
     ConexionMySql conMySql = new ConexionMySql();
@@ -45,5 +45,26 @@ public class ListarProveedores {
         }
         
         
+    }
+    
+    public ArrayList<Proveedor> obtenerProveedores(){
+        ArrayList<Proveedor> proveedorList = new ArrayList<>();
+        
+        try {
+            Statement st;
+            String query = "SELECT idProveedor, nombre FROM Proveedor ORDER  BY NOMBRE ASC";
+            st = connection.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+                Proveedor proveedor =new Proveedor();
+                proveedor.setIdProveedor(rs.getInt("idProveedor"));
+                proveedor.setNombre(rs.getString("nombre"));
+                
+                proveedorList.add(proveedor);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al buscar proveedores\n" +e);
+        }
+        return proveedorList;
     }
 }

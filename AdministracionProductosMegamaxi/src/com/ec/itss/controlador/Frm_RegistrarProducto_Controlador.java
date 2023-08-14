@@ -39,13 +39,14 @@ public class Frm_RegistrarProducto_Controlador implements ActionListener{
             Double precio = Double.parseDouble(frm_rp.txtPrecio.getText());
             Integer fechaCaducidad = frm_rp.txtFechaCaducidad.getText().equals("") ? 0 : Integer.parseInt(frm_rp.txtFechaCaducidad.getText());
             Integer idCategoria = frm_rp.jComboBoxCategoria.getItemAt(frm_rp.jComboBoxCategoria.getSelectedIndex()).getIdCategoria();
+            Integer idProveedor = frm_rp.jComboBoxProveedor.getItemAt(frm_rp.jComboBoxProveedor.getSelectedIndex()).getIdProveedor();
             RegistroProducto registro = new RegistroProducto();
             // Si selecciono Utensilio en el combo se me va a guardar un producto Utensilio
             if(idCategoria == 1){
                 Boolean esPlastico = frm_rp.jRadioButtonEsPlastico.isSelected() ? Boolean.TRUE : Boolean.FALSE;
                 Boolean esMetal = frm_rp.jRadioButtonEsMetal.isSelected()  ? Boolean.TRUE : Boolean.FALSE;
                 Boolean esImportado = frm_rp.jRadioButtonEsImportado.isSelected()  ? Boolean.TRUE : Boolean.FALSE;
-                Utensilio utensilio = new Utensilio(esPlastico,esMetal,esImportado,nombre,identificador,cantidad,precio,fechaCaducidad,idCategoria);
+                Utensilio utensilio = new Utensilio(esPlastico,esMetal,esImportado,nombre,identificador,cantidad,precio,fechaCaducidad,idCategoria, idProveedor);
                 registro.registrarUtensilio(utensilio);
             }
             
@@ -54,14 +55,14 @@ public class Frm_RegistrarProducto_Controlador implements ActionListener{
                         : frm_rp.jRadioButtonCarnicoCarne.isSelected() ? frm_rp.jRadioButtonCarnicoCarne.getText()
                         : frm_rp.jRadioButtonCarnicoCerdo.isSelected() ? frm_rp.jRadioButtonCarnicoCerdo.getText() : null;
                 Double pesoKg = Double.parseDouble(frm_rp.txtPesoKg.getText());
-                Carnico carnico = new Carnico(tipoCarnico, pesoKg, nombre, identificador, cantidad, precio, fechaCaducidad, idCategoria);
+                Carnico carnico = new Carnico(tipoCarnico, pesoKg, nombre, identificador, cantidad, precio, fechaCaducidad, idCategoria, idProveedor);
                 registro.registrarCarnico(carnico);
             }
             
             if(idCategoria == 3){
                 Boolean esLacteo = frm_rp.jRadioButtonEsLacteo.isSelected() ? Boolean.TRUE : Boolean.FALSE;
                 Double capacidadEnvase = Double.valueOf(frm_rp.textCapacidadEnvase.getText());
-                Liquido liquido = new Liquido(capacidadEnvase,esLacteo,nombre,identificador,cantidad,precio,fechaCaducidad,idCategoria);
+                Liquido liquido = new Liquido(capacidadEnvase,esLacteo,nombre,identificador,cantidad,precio,fechaCaducidad,idCategoria, idProveedor);
                 registro.registrarLiquido(liquido);
             }
             

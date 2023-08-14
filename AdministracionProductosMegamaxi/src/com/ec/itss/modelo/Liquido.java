@@ -31,8 +31,8 @@ public class Liquido extends Producto{
         this.esLacteo = esLacteo;
     }   
 
-    public Liquido(Double capacidadEnvase, Boolean esLacteo, String nombre, String identificador, Integer cantidad, Double precio, Integer fechaCaducidad, Integer idCategoria) {
-        super(nombre, identificador, cantidad, precio, fechaCaducidad, idCategoria);
+    public Liquido(Double capacidadEnvase, Boolean esLacteo, String nombre, String identificador, Integer cantidad, Double precio, Integer fechaCaducidad, Integer idCategoria, Integer idProveedor) {
+        super(nombre, identificador, cantidad, precio, fechaCaducidad, idCategoria, idProveedor);
         this.capacidadEnvase = capacidadEnvase;
         this.esLacteo = esLacteo;
     }

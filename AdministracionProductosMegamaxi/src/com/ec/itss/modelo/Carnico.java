@@ -31,8 +31,8 @@ public class Carnico extends Producto {
         this.tipoCarnico = tipoCarnico;
     }
 
-    public Carnico(String tipoCarnico, Double peso, String nombre, String identificador, Integer cantidad, Double precio, Integer fechaCaducidad, Integer idCategoria) {
-        super(nombre, identificador, cantidad, precio, fechaCaducidad, idCategoria);
+    public Carnico(String tipoCarnico, Double peso, String nombre, String identificador, Integer cantidad, Double precio, Integer fechaCaducidad, Integer idCategoria, Integer idProveedor) {
+        super(nombre, identificador, cantidad, precio, fechaCaducidad, idCategoria, idProveedor);
         this.tipoCarnico = tipoCarnico;
         this.peso = peso;
     }

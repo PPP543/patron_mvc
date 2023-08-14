@@ -41,8 +41,8 @@ public class Utensilio extends Producto{
         this.esImportado = esImportado;
     }
 
-    public Utensilio(Boolean esPlastico, Boolean esMetal, Boolean esImportado, String nombre, String identificador, Integer cantidad, Double precio, Integer fechaCaducidad, Integer idCategoria) {
-        super(nombre, identificador, cantidad, precio, fechaCaducidad, idCategoria);
+    public Utensilio(Boolean esPlastico, Boolean esMetal, Boolean esImportado, String nombre, String identificador, Integer cantidad, Double precio, Integer fechaCaducidad, Integer idCategoria, Integer idProveedor) {
+        super(nombre, identificador, cantidad, precio, fechaCaducidad, idCategoria, idProveedor);
         this.esPlastico = esPlastico;
         this.esMetal = esMetal;
         this.esImportado = esImportado;
