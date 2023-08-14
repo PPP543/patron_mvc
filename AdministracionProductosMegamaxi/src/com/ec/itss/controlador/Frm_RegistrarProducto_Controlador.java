@@ -8,7 +8,7 @@ package com.ec.itss.controlador;
 import com.ec.itss.modelo.Carnico;
 import com.ec.itss.modelo.Liquido;
 import com.ec.itss.modelo.ListarProducto;
-import com.ec.itss.modelo.Producto;
+//import com.ec.itss.modelo.Producto;
 import com.ec.itss.modelo.RegistroProducto;
 import com.ec.itss.modelo.Utensilio;
 import com.ec.itss.vista.Frm_RegistrarProducto;

@@ -10,6 +10,7 @@ import com.ec.itss.modelo.ListarCategoria;
 import com.ec.itss.modelo.ListarProducto;
 import com.ec.itss.modelo.Producto;
 import com.ec.itss.modelo.RegistroProducto;
+import com.ec.itss.modelo.Utensilio;
 import java.util.ArrayList;
 
 /**
@@ -17,6 +18,8 @@ import java.util.ArrayList;
  * @author ppucha
  */
 public class Frm_RegistrarProducto extends javax.swing.JDialog {
+
+    private Utensilio utensilio;
 
     /**
      * Creates new form frm_registrarProducto
@@ -279,10 +282,7 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
 
         tableProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -339,9 +339,12 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
         prodt.setPrecio(Double.valueOf(txtPrecio.getText()));
         prodt.setCantidad(Integer.parseInt(txtCantidad.getText()));
         prodt.setFechaCaducidad(Integer.parseInt(txtFechaCaducidad.getText()));
+        rpro.registrarUtensilio(utensilio);
+
         //prodt.addElemnt();
         //rpro.registrar();
         lpro.mostrarTabla(tableProductos);
+        
         
         
         
@@ -441,5 +444,7 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
     public javax.swing.JTextField txtPrecio;
     public javax.swing.JTextField txtProveedor;
     // End of variables declaration//GEN-END:variables
+
+
 }
 

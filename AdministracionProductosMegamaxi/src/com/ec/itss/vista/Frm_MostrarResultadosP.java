@@ -5,24 +5,25 @@
  */
 package com.ec.itss.vista;
 
+import com.ec.itss.modelo.CalcularPesoCarne;
 import com.ec.itss.modelo.Calcular_Ganancias;
 
 /**
  *
  * @author PAUL CROSSOVER
  */
-public class Frm_MostrarResultados extends javax.swing.JFrame {
+public class Frm_MostrarResultadosP extends javax.swing.JFrame {
 
     
     
     
     
-    public Frm_MostrarResultados() {
+    public Frm_MostrarResultadosP() {
         initComponents();
         this.setLocationRelativeTo(null);
-        Calcular_Ganancias x = new  Calcular_Ganancias();
+        CalcularPesoCarne x = new  CalcularPesoCarne();
         //x.CalcularG();
-        Resultado.setText(x.CalcularG());
+        ResultadoC.setText(x.CalcularG());
     }
 
     /**
@@ -36,20 +37,20 @@ public class Frm_MostrarResultados extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        Resultado = new javax.swing.JTextPane();
+        ResultadoC = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 153));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel1.setText("LAS GANANCIAS OBTENIDAS  SON:");
+        jLabel1.setText("EXISTENCIA DE KG DE CARNE ES:");
 
-        Resultado.setEditable(false);
-        Resultado.setBackground(new java.awt.Color(204, 204, 255));
-        Resultado.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        Resultado.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        Resultado.setForeground(java.awt.Color.blue);
-        jScrollPane2.setViewportView(Resultado);
+        ResultadoC.setEditable(false);
+        ResultadoC.setBackground(new java.awt.Color(204, 204, 255));
+        ResultadoC.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        ResultadoC.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        ResultadoC.setForeground(java.awt.Color.blue);
+        jScrollPane2.setViewportView(ResultadoC);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,26 +95,27 @@ public class Frm_MostrarResultados extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Frm_MostrarResultados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frm_MostrarResultadosP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Frm_MostrarResultados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frm_MostrarResultadosP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Frm_MostrarResultados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frm_MostrarResultadosP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Frm_MostrarResultados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Frm_MostrarResultadosP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Frm_MostrarResultados().setVisible(true);
+                new Frm_MostrarResultadosP().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextPane Resultado;
+    public javax.swing.JTextPane ResultadoC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
