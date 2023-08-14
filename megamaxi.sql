@@ -9,8 +9,10 @@ USE `megamaxi_bdd` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `megamaxi_bdd`.`Proveedor` (
   `idProveedor` INT NOT NULL AUTO_INCREMENT,
+  `ruc` varchar(13) NOT NULL,
   `nombre` VARCHAR(45) NULL,
-  `cantidadEntregaAlMes` DOUBLE NULL,
+  `cantidadEntregaAlMes` double NOT NULL,
+  `tipo_proveedor` varchar(20) NOT NULL
   PRIMARY KEY (`idProveedor`))
 ENGINE = InnoDB;
 
@@ -87,3 +89,19 @@ INSERT INTO `megamaxi_bdd`.`categoria`
 VALUES
 ("Líquido",
 "Capacidad de envase y si es lácteo o no");
+
+-----------------
+CREATE TABLE IF NOT EXISTS `megamaxi_bdd`.`Proveedor` (
+  `idProveedor` INT NOT NULL AUTO_INCREMENT,
+  `ruc` varchar(13) NOT NULL,
+  `nombre` VARCHAR(45) NULL,
+  `cantidadEntregaAlMes` double NOT NULL,
+  `tipo_proveedor` varchar(20) NOT NULL,
+  PRIMARY KEY (`idProveedor`))
+ENGINE = InnoDB;
+
+ALTER TABLE `megamaxi_bdd`.`Proveedor`
+ADD COLUMN `ruc` varchar(13) NOT NULL;
+
+ALTER TABLE `megamaxi_bdd`.`Proveedor`
+ADD COLUMN `tipo_proveedor` varchar(20) NOT NULL;

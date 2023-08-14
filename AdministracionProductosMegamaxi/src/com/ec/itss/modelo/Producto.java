@@ -5,6 +5,8 @@
  */
 package com.ec.itss.modelo;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -82,7 +84,7 @@ public class Producto {
     }
     
     public Double calcularTotal(){
-        return cantidad*precio;
+        return new BigDecimal(cantidad*precio).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     public Integer getIdCategoria() {
@@ -118,7 +120,7 @@ public class Producto {
     }
 
     public Double getPrecioComercializacion() {
-        return this.precio + 0.12;
+        return new BigDecimal(this.precio + 0.12).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     public void setPrecioComercializacion(Double precioComercializacion) {

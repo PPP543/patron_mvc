@@ -5,7 +5,9 @@
  */
 package com.ec.itss.vista;
 
+import com.ec.itss.controlador.Frm_RegistrarProducto_Controlador;
 import com.ec.itss.modelo.Calcular_Ganancias;
+import com.ec.itss.modelo.ListarProducto;
 
 
 //SELECT * FROM `producto` WHERE idCategoria ="1" AND idCategoria="2"; consulta 
@@ -202,10 +204,14 @@ public class Frm_MenuIntefaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void BtnIngProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngProdActionPerformed
-        // TODO add your handling code here:
-        initComponents();
-        Frm_RegistrarProducto rprd= new Frm_RegistrarProducto();
-        rprd.setVisible(true);
+        Frm_RegistrarProducto frm_rp = new Frm_RegistrarProducto();
+        frm_rp.setVisible(true);
+        frm_rp.setLocationRelativeTo(null);
+        
+        Frm_RegistrarProducto_Controlador c_frm_rp = new Frm_RegistrarProducto_Controlador(frm_rp);
+        
+        ListarProducto listar_producto = new ListarProducto();
+        listar_producto.mostrarTabla(frm_rp.tableProductos);
     }//GEN-LAST:event_BtnIngProdActionPerformed
 
     private void btnCalcularPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularPActionPerformed
