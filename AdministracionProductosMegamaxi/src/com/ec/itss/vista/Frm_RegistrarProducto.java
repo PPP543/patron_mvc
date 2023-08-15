@@ -5,11 +5,11 @@
  */
 package com.ec.itss.vista;
 
+import com.ec.itss.controlador.Frm_RegistrarProducto_Controlador;
 import com.ec.itss.modelo.Categoria;
 import com.ec.itss.modelo.ListarCategoria;
 import com.ec.itss.modelo.ListarProveedores;
 import com.ec.itss.modelo.Proveedor;
-import com.ec.itss.modelo.Utensilio;
 import java.util.ArrayList;
 
 /**
@@ -17,8 +17,6 @@ import java.util.ArrayList;
  * @author ppucha
  */
 public class Frm_RegistrarProducto extends javax.swing.JDialog {
-
-    private Utensilio utensilio;
 
     /**
      * Creates new form frm_registrarProducto
@@ -78,6 +76,11 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
                 txtPrecioActionPerformed(evt);
             }
         });
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyTyped(evt);
+            }
+        });
 
         txtFechaCaducidad.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fecha caducidad (días)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
         txtFechaCaducidad.addActionListener(new java.awt.event.ActionListener() {
@@ -85,11 +88,21 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
                 txtFechaCaducidadActionPerformed(evt);
             }
         });
+        txtFechaCaducidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFechaCaducidadKeyTyped(evt);
+            }
+        });
 
         txtCantidad.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cantidad en existencia", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
         txtCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCantidadActionPerformed(evt);
+            }
+        });
+        txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadKeyTyped(evt);
             }
         });
 
@@ -108,9 +121,19 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
         });
 
         txtIdentificador.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Identificador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
+        txtIdentificador.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtIdentificadorFocusLost(evt);
+            }
+        });
         txtIdentificador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdentificadorActionPerformed(evt);
+            }
+        });
+        txtIdentificador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdentificadorKeyTyped(evt);
             }
         });
 
@@ -348,6 +371,39 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
     private void jComboBoxProveedorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxProveedorItemStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxProveedorItemStateChanged
+
+    private void txtIdentificadorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificadorKeyTyped
+        if(txtIdentificador.getText().length() > 7){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtIdentificadorKeyTyped
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9') && (car<'.' || car>'.')) evt.consume();
+    }//GEN-LAST:event_txtPrecioKeyTyped
+
+    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+        if(txtCantidad.getText().length() > 7){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCantidadKeyTyped
+
+    private void txtFechaCaducidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaCaducidadKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+        if(txtFechaCaducidad.getText().length() > 7){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtFechaCaducidadKeyTyped
+
+    private void txtIdentificadorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdentificadorFocusLost
+        /*Frm_RegistrarProducto frm_rp = new Frm_RegistrarProducto();
+        Frm_RegistrarProducto_Controlador registrarProductoControlador = new Frm_RegistrarProducto_Controlador(frm_rp);
+        registrarProductoControlador.buscarProductoPorIdentificador(txtIdentificador.getText());*/
+    }//GEN-LAST:event_txtIdentificadorFocusLost
 
     /**
      * @param args the command line arguments

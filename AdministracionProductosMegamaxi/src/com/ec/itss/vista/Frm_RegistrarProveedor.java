@@ -136,11 +136,21 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
                 txtRucActionPerformed(evt);
             }
         });
+        txtRuc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRucKeyTyped(evt);
+            }
+        });
 
         txtEntregas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cantidad Entregas Mes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 12))); // NOI18N
         txtEntregas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEntregasActionPerformed(evt);
+            }
+        });
+        txtEntregas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEntregasKeyTyped(evt);
             }
         });
 
@@ -292,6 +302,22 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
         //b.registrar(r);
         //limpiarentradas();
     }//GEN-LAST:event_tableProveedorMouseClicked
+
+    private void txtRucKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRucKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+        if(txtRuc.getText().length() > 12){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtRucKeyTyped
+
+    private void txtEntregasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEntregasKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9')) evt.consume();
+        if(txtEntregas.getText().length() > 5){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtEntregasKeyTyped
 
     /**
      * @param args the command line arguments
