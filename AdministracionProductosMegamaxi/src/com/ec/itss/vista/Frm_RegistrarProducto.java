@@ -63,6 +63,7 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         jComboBoxProveedor = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableProductos = new javax.swing.JTable();
 
@@ -238,7 +239,8 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
         );
 
         btnGuardar.setBackground(new java.awt.Color(255, 0, 0));
-        btnGuardar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        btnGuardar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ec/itss/imagenes/marca-de-la-senal.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
         btnGuardar.setBorderPainted(false);
@@ -247,6 +249,15 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
         jComboBoxProveedor.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxProveedorItemStateChanged(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ec/itss/imagenes/cerrar.png"))); // NOI18N
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -266,10 +277,15 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
                         .addComponent(txtFechaCaducidad)
                         .addComponent(txtCantidad)
                         .addComponent(txtNombre)
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jPanelPropiedadesLiquido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jComboBoxProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 16, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
+                .addGap(61, 61, 61))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,9 +310,11 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
                 .addComponent(jPanelPropiedadesCarnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelPropiedadesLiquido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
 
         tableProductos.setModel(new javax.swing.table.DefaultTableModel(
@@ -405,6 +423,11 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
         registrarProductoControlador.buscarProductoPorIdentificador(txtIdentificador.getText());*/
     }//GEN-LAST:event_txtIdentificadorFocusLost
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -461,6 +484,7 @@ public class Frm_RegistrarProducto extends javax.swing.JDialog {
     public javax.swing.JButton btnGuardar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton jButton1;
     public javax.swing.JComboBox<Categoria> jComboBoxCategoria;
     public javax.swing.JComboBox<Proveedor> jComboBoxProveedor;
     private javax.swing.JLabel jLabel1;

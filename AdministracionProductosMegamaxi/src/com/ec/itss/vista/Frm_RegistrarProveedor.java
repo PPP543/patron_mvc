@@ -43,7 +43,6 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
         txtNomProv = new javax.swing.JTextField();
         btnCerrar2 = new javax.swing.JButton();
         btnGuardarProv = new javax.swing.JButton();
-        btnActualizar2 = new javax.swing.JButton();
         txtRuc = new javax.swing.JTextField();
         txtEntregas = new javax.swing.JTextField();
         txtTprov = new javax.swing.JTextField();
@@ -52,6 +51,7 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
 
         tableProveedor.setBackground(new java.awt.Color(204, 204, 255));
         tableProveedor.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        tableProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         tableProveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null}
@@ -93,10 +93,12 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
         });
 
         btnCerrar2.setBackground(new java.awt.Color(255, 0, 0));
-        btnCerrar2.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        btnCerrar2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCerrar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ec/itss/imagenes/cerrar.png"))); // NOI18N
         btnCerrar2.setText("Cerrar");
         btnCerrar2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
         btnCerrar2.setBorderPainted(false);
+        btnCerrar2.setPreferredSize(new java.awt.Dimension(38, 17));
         btnCerrar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrar2ActionPerformed(evt);
@@ -104,29 +106,14 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
         });
 
         btnGuardarProv.setBackground(new java.awt.Color(255, 0, 0));
-        btnGuardarProv.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        btnGuardarProv.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnGuardarProv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ec/itss/imagenes/marca-de-la-senal.png"))); // NOI18N
         btnGuardarProv.setText("Guardar");
         btnGuardarProv.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
         btnGuardarProv.setBorderPainted(false);
         btnGuardarProv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarProvActionPerformed(evt);
-            }
-        });
-
-        btnActualizar2.setBackground(new java.awt.Color(255, 0, 0));
-        btnActualizar2.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnActualizar2.setText("Actualizar");
-        btnActualizar2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
-        btnActualizar2.setBorderPainted(false);
-        btnActualizar2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnActualizar2MouseClicked(evt);
-            }
-        });
-        btnActualizar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizar2ActionPerformed(evt);
             }
         });
 
@@ -170,10 +157,7 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtRuc, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                .addGap(98, 98, 98)
-                                .addComponent(btnActualizar2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtRuc, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                             .addComponent(txtNomProv, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTprov))
                         .addContainerGap(37, Short.MAX_VALUE))
@@ -181,13 +165,10 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
                         .addComponent(txtEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnGuardarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(btnCerrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCerrar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGuardarProv, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -201,13 +182,11 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
                 .addComponent(txtEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtTprov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnActualizar2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
+                .addComponent(btnGuardarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnCerrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addComponent(btnCerrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         txtEntregas.getAccessibleContext().setAccessibleName("Entregas al Mes");
@@ -234,10 +213,6 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnActualizar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnActualizar2ActionPerformed
 
     private void btnGuardarProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProvActionPerformed
         // TODO add your handling code here:
@@ -282,17 +257,15 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTprovActionPerformed
 
-    private void btnActualizar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizar2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnActualizar2MouseClicked
-
     private void tableProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProveedorMouseClicked
         
         ListarProveedores a = new ListarProveedores();
         RegistrarProveedor b= new RegistrarProveedor();
         Proveedor r = new Proveedor();
         a.mostrarTabla(tableProveedor);
-        int fila = tableProveedor.getSelectedRow();
+        
+        
+        /*int fila = tableProveedor.getSelectedRow();
         txtNomProv.setText(this.tableProveedor.getValueAt(fila, 3).toString());
         r.setRuc(txtRuc.toString());
         r.setCantidadEntregaAlMes(Integer.parseInt(txtEntregas.toString()));
@@ -300,7 +273,7 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
         a.mostrarTabla(tableProveedor);
         JOptionPane.showMessageDialog(null, "DATOS ACTUALIZADOS CORRECTAMENTE");
         //b.registrar(r);
-        //limpiarentradas();
+        //limpiarentradas();*/
     }//GEN-LAST:event_tableProveedorMouseClicked
 
     private void txtRucKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRucKeyTyped
@@ -355,7 +328,6 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnActualizar2;
     public javax.swing.JButton btnCerrar2;
     public javax.swing.JButton btnGuardarProv;
     public javax.swing.JPanel jPanel3;

@@ -4,10 +4,21 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/vista/Frm_MenuIntefaz.java</file>
+            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/vista/Frm_MostrarResultadosP.java</file>
+            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/modelo/Proveedor.java</file>
             <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/vista/Frm_RegistrarProducto.java</file>
-            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/vista/Frm_ClasificarProveedores.java</file>
+            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/modelo/ListarProducto.java</file>
+            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/controlador/Frm_RegistrarProveedor_Controlador.java</file>
+            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/modelo/CalcularPesoCarne.java</file>
             <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/modelo/RegistroProducto.java</file>
             <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/vista/Frm_RegistrarProveedor.java</file>
+            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/modelo/RegistrarProveedor.java</file>
+            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/modelo/Usuario.java</file>
+            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/modelo/Producto.java</file>
+            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/modelo/Calcular_Ganancias.java</file>
+            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/vista/Frm_InterfazAdministrador.java</file>
+            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/vista/Frm_ClasificarProveedores.java</file>
+            <file>file:/C:/Users/PAUL%20CROSSOVER/Desktop/PROYECTO/patron_mvc/AdministracionProductosMegamaxi/src/com/ec/itss/vista/Frm_MostrarResultados.java</file>
         </group>
     </open-files>
 </project-private>
