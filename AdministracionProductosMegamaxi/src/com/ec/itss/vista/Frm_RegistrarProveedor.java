@@ -9,6 +9,7 @@ package com.ec.itss.vista;
 import com.ec.itss.modelo.ListarProveedores;
 import com.ec.itss.modelo.Proveedor;
 import com.ec.itss.modelo.RegistrarProveedor;
+import javax.swing.JOptionPane;
 //import com.ec.itss.modelo.RegistrarProveedor;
 
 /**
@@ -53,13 +54,33 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
         tableProveedor.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         tableProveedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null}
             },
             new String [] {
-
+                "Nombre Proveedor", "Ruc Proveedor", "Cantidad Entregas Mes", "Tipo Proveedor"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableProveedorMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableProveedor);
+        if (tableProveedor.getColumnModel().getColumnCount() > 0) {
+            tableProveedor.getColumnModel().getColumn(0).setPreferredWidth(40);
+            tableProveedor.getColumnModel().getColumn(1).setPreferredWidth(40);
+            tableProveedor.getColumnModel().getColumn(2).setPreferredWidth(40);
+            tableProveedor.getColumnModel().getColumn(3).setMinWidth(30);
+            tableProveedor.getColumnModel().getColumn(3).setPreferredWidth(40);
+        }
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registro Proveedor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -98,6 +119,11 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
         btnActualizar2.setText("Actualizar");
         btnActualizar2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
         btnActualizar2.setBorderPainted(false);
+        btnActualizar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnActualizar2MouseClicked(evt);
+            }
+        });
         btnActualizar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizar2ActionPerformed(evt);
@@ -160,18 +186,18 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(txtNomProv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(txtEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(txtRuc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(txtEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(txtTprov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(81, 81, 81)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnActualizar2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnCerrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
 
         txtEntregas.getAccessibleContext().setAccessibleName("Entregas al Mes");
@@ -205,22 +231,28 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
 
     private void btnGuardarProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProvActionPerformed
         // TODO add your handling code here:
+        
         ListarProveedores a = new ListarProveedores();
         RegistrarProveedor b= new RegistrarProveedor();
         Proveedor r = new Proveedor();
-        //b.registrar(Proveedor r);
         r.setNombre (txtNomProv.getText());
         r.setRuc(txtRuc.getText());
         r.setCantidadEntregaAlMes(Integer.parseInt(txtEntregas.getText()));
         r.setTipo_proveedor(txtTprov.getText());
-        //System.out.println(nombre);
-        //System.out.println(cantidad);
         b.registrar(r);
+        limpiarentradas();
         a.mostrarTabla(tableProveedor);
+        JOptionPane.showMessageDialog(null, "DATOS GUARDADOS CORRECTAMENTE");
+        
+        
+
+        
     }//GEN-LAST:event_btnGuardarProvActionPerformed
 
     private void btnCerrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar2ActionPerformed
         // TODO add your handling code here:
+        dispose();
+        //System.exit(0);
     }//GEN-LAST:event_btnCerrar2ActionPerformed
 
     private void txtNomProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomProvActionPerformed
@@ -239,6 +271,27 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
     private void txtTprovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTprovActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTprovActionPerformed
+
+    private void btnActualizar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizar2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizar2MouseClicked
+
+    private void tableProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProveedorMouseClicked
+        
+        ListarProveedores a = new ListarProveedores();
+        RegistrarProveedor b= new RegistrarProveedor();
+        Proveedor r = new Proveedor();
+        a.mostrarTabla(tableProveedor);
+        int fila = tableProveedor.getSelectedRow();
+        txtNomProv.setText(this.tableProveedor.getValueAt(fila, 3).toString());
+        r.setRuc(txtRuc.toString());
+        r.setCantidadEntregaAlMes(Integer.parseInt(txtEntregas.toString()));
+        r.setTipo_proveedor(txtTprov.toString());
+        a.mostrarTabla(tableProveedor);
+        JOptionPane.showMessageDialog(null, "DATOS ACTUALIZADOS CORRECTAMENTE");
+        //b.registrar(r);
+        //limpiarentradas();
+    }//GEN-LAST:event_tableProveedorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -287,6 +340,14 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
     public javax.swing.JTextField txtRuc;
     public javax.swing.JTextField txtTprov;
     // End of variables declaration//GEN-END:variables
+
+    private void limpiarentradas() {
+        txtEntregas.setText("");
+        txtNomProv.setText("");
+        txtRuc.setText("");
+        txtTprov.setText("");
+        
+    }
     
-            
+   
 }

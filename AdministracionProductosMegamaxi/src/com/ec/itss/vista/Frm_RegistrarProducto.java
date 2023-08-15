@@ -7,11 +7,8 @@ package com.ec.itss.vista;
 
 import com.ec.itss.modelo.Categoria;
 import com.ec.itss.modelo.ListarCategoria;
-import com.ec.itss.modelo.ListarProducto;
 import com.ec.itss.modelo.ListarProveedores;
-import com.ec.itss.modelo.Producto;
 import com.ec.itss.modelo.Proveedor;
-import com.ec.itss.modelo.RegistroProducto;
 import com.ec.itss.modelo.Utensilio;
 import java.util.ArrayList;
 

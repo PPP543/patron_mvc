@@ -26,7 +26,7 @@ public class Calcular_Ganancias {
             String rest = rs.getString(1);
 
             System.out.println("Conexion exitosa");
-            return rest;
+            return "$ " + rest;
 
         } catch (SQLException e) {
             System.out.print("Error al realizar la consulta" + e);
