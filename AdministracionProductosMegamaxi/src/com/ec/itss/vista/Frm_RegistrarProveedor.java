@@ -6,11 +6,13 @@
 package com.ec.itss.vista;
 
 //import static com.ec.itss.main.Principal.frm_prov;
+import com.ec.itss.modelo.ActualizarProveedor;
 import com.ec.itss.modelo.ListarProveedores;
 import com.ec.itss.modelo.Proveedor;
 import com.ec.itss.modelo.RegistrarProveedor;
 import javax.swing.JOptionPane;
-//import com.ec.itss.modelo.RegistrarProveedor;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -21,11 +23,31 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
     /**
      * Creates new form Frm_RegistrarProveedor
      */
+    public String id;
+
     public Frm_RegistrarProveedor() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
-        
+        ListarProveedores a = new ListarProveedores();
+        //RegistrarProveedor b= new RegistrarProveedor();
+        //Proveedor r = new Proveedor();
+        a.mostrarTabla(tableProveedor);
+        tableProveedor.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if(tableProveedor.getSelectedRow() >0){
+                    
+                    int fila = tableProveedor.getSelectedRow();
+                    id=tableProveedor.getValueAt(fila, 0).toString();
+                    txtNomProv.setText(tableProveedor.getValueAt(fila, 2).toString());
+                    txtRuc.setText(tableProveedor.getValueAt(fila, 1).toString());
+                    txtEntregas.setText(tableProveedor.getValueAt(fila,3).toString());
+                    txtTprov.setText(tableProveedor.getValueAt(fila, 4).toString());
+              
+                }
+            }
+        });
+        //a.mostrarTabla(tableProveedor)
     }
 
     /**
@@ -46,6 +68,8 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
         txtRuc = new javax.swing.JTextField();
         txtEntregas = new javax.swing.JTextField();
         txtTprov = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,6 +172,24 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ec/itss/imagenes/ingresar.png"))); // NOI18N
+        jButton1.setText("Clasificación  Proveedores");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnActualizar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnActualizar.setText("Actualizar");
+        btnActualizar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)));
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -165,11 +207,21 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
                         .addComponent(txtEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCerrar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGuardarProv, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnGuardarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(btnCerrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,11 +234,15 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
                 .addComponent(txtEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtTprov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(btnGuardarProv, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnGuardarProv, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
                 .addComponent(btnCerrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         txtEntregas.getAccessibleContext().setAccessibleName("Entregas al Mes");
@@ -196,19 +252,20 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 929, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(187, Short.MAX_VALUE))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -259,10 +316,10 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
 
     private void tableProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProveedorMouseClicked
         
-        ListarProveedores a = new ListarProveedores();
+        /*ListarProveedores a = new ListarProveedores();
         RegistrarProveedor b= new RegistrarProveedor();
         Proveedor r = new Proveedor();
-        a.mostrarTabla(tableProveedor);
+        a.mostrarTabla(tableProveedor);*/
         
         
         /*int fila = tableProveedor.getSelectedRow();
@@ -291,6 +348,29 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtEntregasKeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Frm_ClasificarProveedores cl = new Frm_ClasificarProveedores();
+        cl.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+        Proveedor proveedor = new  Proveedor();
+        ActualizarProveedor act= new ActualizarProveedor();
+        ListarProveedores s= new ListarProveedores();
+        proveedor.setNombre(txtNomProv.getText());
+        proveedor.setRuc(txtRuc.getText());
+        proveedor.setCantidadEntregaAlMes(Integer.parseInt(txtEntregas.getText()));
+        proveedor.setTipo_proveedor(txtTprov.getText());
+        proveedor.setIdProveedor(Integer.parseInt(id));
+        act.actualizar(proveedor);
+        
+        limpiarentradas();
+        s.mostrarTabla(tableProveedor);
+        
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,8 +408,10 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnCerrar2;
     public javax.swing.JButton btnGuardarProv;
+    private javax.swing.JButton jButton1;
     public javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tableProveedor;
