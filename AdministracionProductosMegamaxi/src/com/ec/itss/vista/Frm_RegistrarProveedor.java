@@ -5,7 +5,6 @@
  */
 package com.ec.itss.vista;
 
-//import static com.ec.itss.main.Principal.frm_prov;
 import com.ec.itss.modelo.ActualizarProveedor;
 import com.ec.itss.modelo.EliminarProveedor;
 import com.ec.itss.modelo.ListarProveedores;
@@ -392,9 +391,12 @@ public class Frm_RegistrarProveedor extends javax.swing.JFrame {
         ListarProveedores ls = new ListarProveedores();
         int fila = tableProveedor.getSelectedRow();
         id=tableProveedor.getValueAt(fila, 0).toString();
-        bp.borrarProveedor(Integer.parseInt(id));
-        ls.mostrarTabla(tableProveedor);
-        limpiarentradas();
+        int op=JOptionPane.showConfirmDialog(null, "Desea eliminar este proveedor","",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if (op==JOptionPane.YES_NO_OPTION){
+            bp.borrarProveedor(Integer.parseInt(id));
+            ls.mostrarTabla(tableProveedor);
+            limpiarentradas();
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**

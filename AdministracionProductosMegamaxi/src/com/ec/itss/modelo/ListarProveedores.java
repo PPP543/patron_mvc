@@ -24,7 +24,7 @@ public class ListarProveedores {
     
     public void mostrarTabla(JTable tabla){
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("idProveedor");
+        //modelo.addColumn("idProveedor");
         modelo.addColumn("Ruc Proveedor");
         modelo.addColumn("Nombre Proveedor");
         modelo.addColumn("Cantidad Entregas Mes");

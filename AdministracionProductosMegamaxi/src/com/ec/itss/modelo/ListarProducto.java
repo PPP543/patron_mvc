@@ -23,12 +23,14 @@ public class ListarProducto {
     
     public void mostrarTabla(JTable tabla){
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("TipoProducto");
+        // no se necesita agregar la columna idProducto
+        //modelo.addColumn("Id");
+        modelo.addColumn("Tipo Producto");
         modelo.addColumn("Precio");
         modelo.addColumn("Cantidad existencia");
         modelo.addColumn("Precio comercialización");
         
-        String query = "SELECT c.nombre, p.precio, p.cantidad, p.precioComercializacion "
+        String query = "SELECT p.idProducto, c.nombre, p.precio, p.cantidad, p.precioComercializacion "
                 + "FROM producto p, categoria c "
                 + "WHERE p.idCategoria = c.idCategoria";
         Statement st;
@@ -36,7 +38,7 @@ public class ListarProducto {
             st = connection.createStatement();
             ResultSet rs = st.executeQuery(query);
             while (rs.next()){
-                Object [] lista = {rs.getString(1), rs.getDouble(2), rs.getInt(3), rs.getDouble(4)};
+                Object [] lista = {rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getInt(4), rs.getDouble(5)};
                 modelo.addRow(lista);
             }
             tabla.setModel(modelo);
